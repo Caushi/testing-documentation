@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+
+
+<html lang="Python" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sushi Use Case &#8212; bfabric-web-apps 20.12.2024 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sidebar-nav.css?v=0dc337ef" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=af8e464a" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=ff720171"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sushi_use_case';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="Python"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar">
+  <div class="bd-header__inner bd-page-width">
+    
+    <!-- Slightly Left-Aligned Title -->
+    <div class="navbar-header-items__center" style="transform: translateX(7.5%);">
+      <span class="navbar-text">Bfabric Web Apps Documentation</span>
+    </div>
+
+    <!-- Right Side: Search & Light/Dark Mode -->
+    <div class="navbar-header-items__end">
+
+      <!-- Search -->
+      <button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="search-button__default-text">Search</span>
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </button>
+
+      <!-- Light/Dark Mode Switch -->
+      <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode">
+        <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+        <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+        <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">bfabric-web-apps 20.12.2024 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><div class="sidebar-item" style="overflow: visible; height: auto; max-height: none;">
+  <h3>Navigation Bar</h3>
+  <ul class="sidebar-nav" style="overflow: visible; height: auto; max-height: none;">
+    <li><a href="index.html">Introduction</a></li>
+    <li><a href="installation.html">Installation Guide</a></li>
+
+    <li>
+      <a href="bfabric_web_apps_functions.html">Library Docs</a>
+      <ul>
+        <li><a href="global_variables.html">Global Variables</a></li>
+        <li><a href="important_components.html">Important Components</a></li>
+        <li><a href="important_functions.html">Important Functions</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="usage.html">Template Usage</a>
+      <ul>
+        <li><a href="installation_template.html">Template Deployment Guide</a></li>
+        <li><a href="index_basic_py.html">Minimal Template</a></li>
+        <li><a href="index_py.html">Full-Featured Template</a></li>
+        <li><a href="index_redis.html">Redis Template</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="use_case.html">Use Case</a>
+      <ul>
+        <li><a href="nextflow_use_case.html">Nextflow Use Case</a></li>
+        <li><a href="#">Sushi Use Case</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="video_tutorials.html">Video Tutorials</a>
+      <ul>
+        <li><a href="deploying_video_tutorials.html">Deploying Tutorials</a></li>
+        <li><a href="building_webapps_video_tutorials.html">Building WebApps</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Sushi Use Case</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sushi-use-case">
+<h1>Sushi Use Case<a class="headerlink" href="#sushi-use-case" title="Link to this heading">#</a></h1>
+<p>This chapter presents a practical example of how B-Fabric datasets can be used to drive Sushi-based workflows through a Dash web interface, using the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library and the SushiRunner application.</p>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This chapter demonstrates how the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library can be used to build modular, Dash-based web interfaces for launching <a class="reference external" href="https://github.com/uzh/sushi">Sushi</a> applications. The SushiRunner app connects B-Fabric datasets with the <a class="reference external" href="https://github.com/uzh/sushi_fabric">SushiFabric</a> command-line interface and the <a class="reference external" href="https://github.com/uzh/workflow_manager">WorkflowManager</a>, enabling structured job submission without requiring users to manually prepare TSV inputs or scripts.</p>
+<p>SushiRunner serves as a <strong>proof-of-concept</strong> application that allows authenticated B-Fabric users to submit predefined Sushi jobs using a form-based web interface.</p>
+<p>For source code and a quickstart guide, visit:
+<a class="reference external" href="https://github.com/GWCustom/SushiRunner">GWCustom/SushiRunner</a></p>
+<hr class="docutils" />
+<section id="what-is-sushi">
+<h3>What is Sushi?<a class="headerlink" href="#what-is-sushi" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://github.com/uzh/sushi">Sushi</a> is a Ruby-based framework for developing and executing bioinformatics workflows. It enables reproducible and modular pipelines by abstracting input/output definitions and runtime parameters. Sushi apps can be executed locally or on computing clusters using <a class="reference external" href="https://github.com/uzh/sushi_fabric">SushiFabric</a> and managed via <a class="reference external" href="https://github.com/uzh/workflow_manager">WorkflowManager</a>.</p>
+<p>Sushi is used extensively within the <a class="reference external" href="https://fgcz-bfabric.uzh.ch/bfabric/">FGCZ</a> infrastructure and integrates well with B-Fabric through standardized dataset and parameter input files.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sushirunner-use-case">
+<h2>SushiRunner Use Case<a class="headerlink" href="#sushirunner-use-case" title="Link to this heading">#</a></h2>
+<p>SushiRunner demonstrates how a B-Fabric-aware Dash application can be built to configure, validate, and launch Sushi applications.</p>
+<p>The app is implemented using the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library and follows a template-based structure with reusable layout components. Users interact with a dynamic web form that collects job-specific parameters and generates the required <code class="docutils literal notranslate"><span class="pre">dataset.tsv</span></code> and <code class="docutils literal notranslate"><span class="pre">parameters.tsv</span></code> files before triggering execution via <code class="docutils literal notranslate"><span class="pre">sushi_fabric</span></code>.</p>
+<p>Although this use case specifically showcases SushiRunner, many of its patterns (authentication, dataset loading, parameter forms, and result registration) are reusable in other workflow UIs.</p>
+<hr class="docutils" />
+<section id="sushi-workflow">
+<h3>Sushi Workflow<a class="headerlink" href="#sushi-workflow" title="Link to this heading">#</a></h3>
+<p>The typical workflow in SushiRunner consists of the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Launch from B-Fabric</strong>
+The user opens the app via a dataset-specific link from B-Fabric.</p></li>
+<li><p><strong>Load Dataset Metadata</strong>
+The app automatically retrieves and parses metadata via the B-Fabric API.</p></li>
+<li><p><strong>Configure Parameters</strong>
+Users select the Sushi app to run and define input parameters (e.g., RAM, CPU, paired-end, QC options).</p></li>
+<li><p><strong>Generate Input Files</strong>
+The app creates the required <code class="docutils literal notranslate"><span class="pre">dataset.tsv</span></code> and <code class="docutils literal notranslate"><span class="pre">parameters.tsv</span></code> files for Sushi.</p></li>
+<li><p><strong>Submit Job via <code class="docutils literal notranslate"><span class="pre">sushi_fabric</span></code></strong>
+Sushi is invoked using the appropriate app class and configuration.</p></li>
+<li><p><strong>Monitor Execution</strong>
+Jobs are executed and tracked using WorkflowManager. Status updates and logs are available via the FGCZ monitoring tools.</p></li>
+<li><p><strong>Register Workunits and Outputs</strong>
+Completed job information is registered back into B-Fabric for traceability.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="app-structure">
+<h3>App Structure<a class="headerlink" href="#app-structure" title="Link to this heading">#</a></h3>
+<p>SushiRunner apps are organized as modular Dash apps, one per Sushi tool (e.g., FastQC, MultiQC, Trimgalore). The architecture includes:</p>
+<ul class="simple">
+<li><p><strong>Dataset Integration</strong>
+Retrieves and parses metadata from B-Fabric, typically used to generate the <code class="docutils literal notranslate"><span class="pre">dataset.tsv</span></code>.</p></li>
+<li><p><strong>Dynamic Parameter Form</strong>
+A form-based UI dynamically updates available fields based on the selected Sushi app. Generic options (RAM, cores, partition) and app-specific parameters (e.g., <code class="docutils literal notranslate"><span class="pre">paired</span></code>, <code class="docutils literal notranslate"><span class="pre">showNativeReports</span></code>) are supported.</p></li>
+<li><p><strong>Job Submission Logic</strong>
+Once confirmed, the app generates input files and submits the job using <code class="docutils literal notranslate"><span class="pre">sushi_fabric</span></code>, without relying on Redis queues.</p></li>
+<li><p><strong>Charging and Logging</strong>
+Optional integration with the B-Fabric charge system and automatic workunit creation via the library's configuration.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="supported-applications">
+<h3>Supported Applications<a class="headerlink" href="#supported-applications" title="Link to this heading">#</a></h3>
+<p>Each Sushi app is handled by a separate module within SushiRunner. Example:</p>
+<ul class="simple">
+<li><p><strong>FastQC App</strong></p>
+<ul>
+<li><p>Input: FASTQ files</p></li>
+<li><p>Parameters: cores, RAM, paired-end toggle, etc.</p></li>
+<li><p>Submission: Uses <code class="docutils literal notranslate"><span class="pre">FastqcApp</span></code> class in <code class="docutils literal notranslate"><span class="pre">sushi_fabric</span></code></p></li>
+<li><p>Visual output registered as attachments in B-Fabric</p></li>
+</ul>
+</li>
+</ul>
+<p>The SushiRunner architecture supports extending to additional Sushi apps with minimal duplication.</p>
+</section>
+<hr class="docutils" />
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading">#</a></h3>
+<p>Once submitted, the following outputs are produced:</p>
+<ul class="simple">
+<li><p><strong>Sushi Output Directory</strong>
+Results are stored in a structured folder on the compute cluster, according to Sushi conventions.</p></li>
+<li><p><strong>Workunit Registration</strong>
+Each job is logged in B-Fabric with metadata linking the execution and inputs.</p></li>
+<li><p><strong>Report Attachments</strong>
+Reports such as HTML QC summaries can be linked back to the dataset entity.</p></li>
+<li><p><strong>Automatic Charging (if enabled)</strong>:
+If the user activates the Charge Switch, the application automatically charges the appropriate container using the configured service ID before pipeline execution.</p></li>
+</ul>
+<hr class="docutils" />
+<p>By abstracting the complexity of TSV generation and <code class="docutils literal notranslate"><span class="pre">sushi_fabric</span></code> CLI usage, SushiRunner simplifies the execution of Sushi workflows through a user-friendly, form-based Dash interface — directly integrated with the B-Fabric system.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sushi">What is Sushi?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sushirunner-use-case">SushiRunner Use Case</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sushi-workflow">Sushi Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app-structure">App Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-applications">Supported Applications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+<footer class="bd-footer">
+  <div class="bd-footer__inner bd-page-width" style="padding: 20px 0;"> <!-- Adjust padding to reduce height -->
+  </div>
+</footer>
+
+  </body>
+</html>

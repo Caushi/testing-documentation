@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+
+
+<html lang="Python" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Video Tutorials &#8212; bfabric-web-apps 20.12.2024 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sidebar-nav.css?v=0dc337ef" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=af8e464a" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=ff720171"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'video_tutorials';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="Python"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar">
+  <div class="bd-header__inner bd-page-width">
+    
+    <!-- Slightly Left-Aligned Title -->
+    <div class="navbar-header-items__center" style="transform: translateX(7.5%);">
+      <span class="navbar-text">Bfabric Web Apps Documentation</span>
+    </div>
+
+    <!-- Right Side: Search & Light/Dark Mode -->
+    <div class="navbar-header-items__end">
+
+      <!-- Search -->
+      <button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="search-button__default-text">Search</span>
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </button>
+
+      <!-- Light/Dark Mode Switch -->
+      <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode">
+        <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+        <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+        <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">bfabric-web-apps 20.12.2024 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><div class="sidebar-item" style="overflow: visible; height: auto; max-height: none;">
+  <h3>Navigation Bar</h3>
+  <ul class="sidebar-nav" style="overflow: visible; height: auto; max-height: none;">
+    <li><a href="index.html">Introduction</a></li>
+    <li><a href="installation.html">Installation Guide</a></li>
+
+    <li>
+      <a href="bfabric_web_apps_functions.html">Library Docs</a>
+      <ul>
+        <li><a href="global_variables.html">Global Variables</a></li>
+        <li><a href="important_components.html">Important Components</a></li>
+        <li><a href="important_functions.html">Important Functions</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="usage.html">Template Usage</a>
+      <ul>
+        <li><a href="installation_template.html">Template Deployment Guide</a></li>
+        <li><a href="index_basic_py.html">Minimal Template</a></li>
+        <li><a href="index_py.html">Full-Featured Template</a></li>
+        <li><a href="index_redis.html">Redis Template</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="use_case.html">Use Case</a>
+      <ul>
+        <li><a href="nextflow_use_case.html">Nextflow Use Case</a></li>
+        <li><a href="sushi_use_case.html">Sushi Use Case</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#">Video Tutorials</a>
+      <ul>
+        <li><a href="deploying_video_tutorials.html">Deploying Tutorials</a></li>
+        <li><a href="building_webapps_video_tutorials.html">Building WebApps</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Video Tutorials</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="video-tutorials">
+<h1>Video Tutorials<a class="headerlink" href="#video-tutorials" title="Link to this heading">#</a></h1>
+<p>This section provides step-by-step video guides to help you work with the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library and related tools.
+The current focus is on deployment tutorials, with more topics coming soon.</p>
+<hr class="docutils" />
+<section id="what-youll-learn">
+<h2>What You’ll Learn<a class="headerlink" href="#what-youll-learn" title="Link to this heading">#</a></h2>
+<p><strong>Deployment Tutorials</strong>
+Learn how to deploy and manage B-Fabric web applications following recommended practices.</p>
+<p><strong>Use Case Walkthroughs</strong>
+Explore examples that show how we apply <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> to solve complex business challenges.</p>
+<p><strong>Programming Tips</strong>
+Gain insights into tools, techniques, and development workflows used by professionals.</p>
+<p><strong>Software &amp; App Reviews</strong>
+See which apps and services we use to improve productivity and streamline project development.</p>
+</section>
+<hr class="docutils" />
+<section id="watch-on-youtube">
+<h2>Watch on YouTube<a class="headerlink" href="#watch-on-youtube" title="Link to this heading">#</a></h2>
+<p>You can explore all our videos on the
+<strong><a class="reference external" href="https://www.youtube.com/&#64;GWC-Solutions-ch">official GWC Solutions YouTube channel</a></strong>.</p>
+<p>Our channel is dedicated to sharing knowledge and technical insights. Whether you're a developer, data scientist, or a company looking to optimize operations, our content is designed to help you stay informed and move faster with confidence.</p>
+</section>
+<hr class="docutils" />
+<section id="stay-updated">
+<h2>Stay Updated<a class="headerlink" href="#stay-updated" title="Link to this heading">#</a></h2>
+<p>Subscribe to the channel to receive updates on new tutorials, features, and innovations from the GWC team.</p>
+</section>
+<hr class="docutils" />
+<section id="available-tutorials">
+<h2>Available Tutorials<a class="headerlink" href="#available-tutorials" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="deploying_video_tutorials.html"><span class="std std-doc">Deploying Tutorials</span></a></p></li>
+<li><p><a class="reference internal" href="building_webapps_video_tutorials.html"><span class="std std-doc">Building WebApps</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-youll-learn">What You’ll Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watch-on-youtube">Watch on YouTube</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stay-updated">Stay Updated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-tutorials">Available Tutorials</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+<footer class="bd-footer">
+  <div class="bd-footer__inner bd-page-width" style="padding: 20px 0;"> <!-- Adjust padding to reduce height -->
+  </div>
+</footer>
+
+  </body>
+</html>

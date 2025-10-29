@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+
+<html lang="Python" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nextflow Use Case &#8212; bfabric-web-apps 20.12.2024 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sidebar-nav.css?v=0dc337ef" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=af8e464a" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=ff720171"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nextflow_use_case';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="Python"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+<header class="bd-header navbar navbar-expand-lg bd-navbar">
+  <div class="bd-header__inner bd-page-width">
+    
+    <!-- Slightly Left-Aligned Title -->
+    <div class="navbar-header-items__center" style="transform: translateX(7.5%);">
+      <span class="navbar-text">Bfabric Web Apps Documentation</span>
+    </div>
+
+    <!-- Right Side: Search & Light/Dark Mode -->
+    <div class="navbar-header-items__end">
+
+      <!-- Search -->
+      <button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="search-button__default-text">Search</span>
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </button>
+
+      <!-- Light/Dark Mode Switch -->
+      <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode">
+        <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+        <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+        <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">bfabric-web-apps 20.12.2024 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><div class="sidebar-item" style="overflow: visible; height: auto; max-height: none;">
+  <h3>Navigation Bar</h3>
+  <ul class="sidebar-nav" style="overflow: visible; height: auto; max-height: none;">
+    <li><a href="index.html">Introduction</a></li>
+    <li><a href="installation.html">Installation Guide</a></li>
+
+    <li>
+      <a href="bfabric_web_apps_functions.html">Library Docs</a>
+      <ul>
+        <li><a href="global_variables.html">Global Variables</a></li>
+        <li><a href="important_components.html">Important Components</a></li>
+        <li><a href="important_functions.html">Important Functions</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="usage.html">Template Usage</a>
+      <ul>
+        <li><a href="installation_template.html">Template Deployment Guide</a></li>
+        <li><a href="index_basic_py.html">Minimal Template</a></li>
+        <li><a href="index_py.html">Full-Featured Template</a></li>
+        <li><a href="index_redis.html">Redis Template</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="use_case.html">Use Case</a>
+      <ul>
+        <li><a href="#">Nextflow Use Case</a></li>
+        <li><a href="sushi_use_case.html">Sushi Use Case</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="video_tutorials.html">Video Tutorials</a>
+      <ul>
+        <li><a href="deploying_video_tutorials.html">Deploying Tutorials</a></li>
+        <li><a href="building_webapps_video_tutorials.html">Building WebApps</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Nextflow Use Case</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="nextflow-use-case">
+<h1>Nextflow Use Case<a class="headerlink" href="#nextflow-use-case" title="Link to this heading">#</a></h1>
+<p>This chapter provides a comprehensive example of how Nextflow-based workflows, specifically NF-Core RNA-seq, can be seamlessly integrated into web applications using the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library.</p>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This chapter demonstrates how the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library can be utilized to build Dash-based applications for running Nextflow pipelines. The general structure of these applications leverages Redis queues for asynchronous job management, integrates seamlessly with the B-Fabric system, and employs a modular, user-friendly web interface for workflow management.</p>
+<p>The RNA-seq application described in detail here is a proof-of-concept showcasing how complex bioinformatics workflows can be efficiently executed through an interactive web interface integrated into the B-Fabric ecosystem. For the complete source code or a quickstart guide, visit the <a class="reference external" href="https://github.com/GWCustom/rnaseq">RNA-seq app GitHub repository</a>.</p>
+<p>Additionally, although not covered extensively in this chapter, we provide two other proof-of-concept applications:</p>
+<ul class="simple">
+<li><p><strong>Demultiplex App</strong>: Demonstrates integration between B-Fabric, the NF-Core Demultiplex pipeline, and Redis-based asynchronous job execution, validating the flexibility of the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library. The source code is available in the <a class="reference external" href="https://github.com/GWCustom/bfabric_app_demultiplex">bfabric_app_demultiplex GitHub repository</a>.</p></li>
+<li><p><strong>Hello World App</strong>: Offers a minimalistic example to quickly grasp the basic integration concepts between Nextflow, B-Fabric, and Redis job queues. The source code is available in the <a class="reference external" href="https://github.com/GWCustom/nfc-hello-world">nfc-hello-world GitHub repository</a>.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="what-is-nextflow-nf-core">
+<h3>What is Nextflow &amp; NF-Core?<a class="headerlink" href="#what-is-nextflow-nf-core" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.nextflow.io/docs/latest/index.html"><strong>Nextflow</strong></a> is a powerful workflow management system designed for scalable, reproducible computational pipelines. It supports parallel and distributed computing across various environments, including local machines, HPC clusters, and cloud services.</p>
+<p><a class="reference external" href="https://nf-co.re/"><strong>NF-Core</strong></a> is a community-driven project that provides standardized Nextflow pipelines adhering to best practices for bioinformatics analysis. It includes workflows for a wide range of use cases, such as RNA-seq, ATAC-seq, and genome assembly.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="rna-seq-use-case">
+<h2>RNA-seq Use Case<a class="headerlink" href="#rna-seq-use-case" title="Link to this heading">#</a></h2>
+<p>The RNA-seq app illustrates the practical application of the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library by orchestrating the widely-used NF-Core RNA-seq pipeline for bulk transcriptomics analysis.</p>
+<p>The RNA-seq app is a <strong>proof-of-concept application</strong> for transcriptomic analysis within the B-Fabric ecosystem. It demonstrates how to combine B-Fabric metadata, a user-friendly Dash interface, and NF-Core RNA-seq pipelines in a single web application.</p>
+<p>The app is built using the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library and follows the <a class="reference external" href="https://github.com/GWCustom/bfabric-web-app-template"><code class="docutils literal notranslate"><span class="pre">redis_index.py</span></code></a> template, enabling asynchronous job execution via a Redis queue system.</p>
+<p>Although this chapter specifically discusses the RNA-seq use case, many elements and structures described here are common across other Nextflow-based applications. The RNA-seq app thus serves as a representative example to illustrate the general structure and implementation patterns of Nextflow applications developed using the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library.</p>
+<p>For the complete source code or a quickstart guide, visit the <a class="reference external" href="https://github.com/GWCustom/rnaseq">RNA-seq app GitHub repository</a>.</p>
+<hr class="docutils" />
+<section id="nf-core-rna-seq-pipeline">
+<h3>NF-Core RNA-seq Pipeline<a class="headerlink" href="#nf-core-rna-seq-pipeline" title="Link to this heading">#</a></h3>
+<p>The NF-Core RNA-seq pipeline is a widely used, community-maintained workflow for processing bulk RNA sequencing data. It includes quality control, alignment, quantification, and differential expression analysis using tools such as FastQC, STAR, and DESeq2.</p>
+<p>For more details, see the <a class="reference external" href="https://nf-co.re/rnaseq/3.18.0/">official documentation</a>.</p>
+<p><img alt="NF-Core RNA-seq Pipeline Overview" src="_images/nf-core-rnaseq_metro_map_grey.png" /></p>
+</section>
+<hr class="docutils" />
+<section id="app-structure">
+<h3>App Structure<a class="headerlink" href="#app-structure" title="Link to this heading">#</a></h3>
+<p>The RNA-seq app is organized into three main components:</p>
+<ol class="arabic simple">
+<li><p><strong>B-Fabric Integration</strong>
+Internal logic handles all interactions with the B-Fabric API. It fetches project and dataset metadata, extracts relevant information, and generates sample sheet files used as pipeline input.</p></li>
+<li><p><strong>User Interface</strong>
+The Dash-based UI collects key input parameters such as CPU, RAM, FASTA, GTF files, and an email address. It also includes a <strong>Charge Switch</strong> to associate run costs with a B-Fabric container. Sample metadata is visualized in a table where users can review and edit records before submission.</p></li>
+<li><p><strong>Main Job Execution</strong>
+When the user confirms submission, the app:</p>
+<ul class="simple">
+<li><p>Converts files to byte streams.</p></li>
+<li><p>Builds the appropriate bash command to run the Nextflow-based NF-Core RNA-seq pipeline.</p></li>
+<li><p>Enqueues the job to Redis for remote execution.</p></li>
+<li><p>Registers output files and reports back into B-Fabric via the API.</p></li>
+</ul>
+</li>
+</ol>
+<p>This modular design supports rapid development and easy adaptation to other Nextflow pipelines.</p>
+</section>
+<hr class="docutils" />
+<section id="server-architecture">
+<h3>Server Architecture<a class="headerlink" href="#server-architecture" title="Link to this heading">#</a></h3>
+<p>The RNA-seq app follows a <strong>three-tier architecture</strong> that decouples the web interface, job scheduling, and job execution:</p>
+<ul class="simple">
+<li><p>A <strong>Web App Server</strong> hosts the Dash UI, processes input from users, fetches B-Fabric metadata, and enqueues jobs via Redis.</p></li>
+<li><p>A <strong>Compute Server</strong> listens to Redis, runs the actual Nextflow jobs using <code class="docutils literal notranslate"><span class="pre">run_main_job()</span></code>, and stores output locally.</p></li>
+<li><p>The <strong>B-Fabric System</strong> provides metadata access and receives resource links and attachments once processing is complete.</p></li>
+</ul>
+</section>
+<section id="rna-seq-architecture-diagram">
+<h3>RNA-seq Architecture Diagram<a class="headerlink" href="#rna-seq-architecture-diagram" title="Link to this heading">#</a></h3>
+<p><img alt="RNA-seq Architecture Diagram" src="_images/use_case_architecture.png" /></p>
+<p>This architecture allows for <strong>asynchronous</strong>, <strong>scalable</strong>, and <strong>user-friendly</strong> execution of complex workflows integrated with B-Fabric.</p>
+</section>
+<hr class="docutils" />
+<section id="step-by-step-workflow">
+<h3>Step-by-Step Workflow<a class="headerlink" href="#step-by-step-workflow" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Launch the App</strong>
+The user opens the RNA-seq web app via a B-Fabric launch link containing a valid session token.</p></li>
+<li><p><strong>Authentication and Token Validation</strong>
+The app extracts the token, validates it using B-Fabric’s REST API, and fetches:</p>
+<ul class="simple">
+<li><p>Token metadata</p></li>
+<li><p>Application metadata</p></li>
+<li><p>Dataset/entity metadata</p></li>
+</ul>
+</li>
+<li><p><strong>Configure Run Parameters</strong>
+The user enters details like:</p>
+<ul class="simple">
+<li><p>Job name and comment</p></li>
+<li><p>Email address</p></li>
+<li><p>Number of CPUs and RAM allocation</p></li>
+<li><p>FASTA and GTF reference files</p></li>
+<li><p>Queue selection (<code class="docutils literal notranslate"><span class="pre">light</span></code> or <code class="docutils literal notranslate"><span class="pre">heavy</span></code>)</p></li>
+<li><p>Toggle charge switch (on/off)</p></li>
+</ul>
+</li>
+<li><p><strong>Review Sample Metadata</strong>
+A DataTable renders the B-Fabric dataset. Users can inspect and review the detected sample names and file associations.</p></li>
+<li><p><strong>Submit the Pipeline Job</strong>
+After clicking the submit button, a modal asks for final confirmation.</p></li>
+<li><p><strong>Run the Job via Redis Queue</strong>
+On confirmation:</p>
+<ul class="simple">
+<li><p>A sample sheet CSV is generated and saved</p></li>
+<li><p>Associated files are converted to byte strings</p></li>
+<li><p>Bash commands for pipeline execution are prepared</p></li>
+<li><p>Output/attachment/resource paths are configured</p></li>
+<li><p>The job is enqueued using Redis (<code class="docutils literal notranslate"><span class="pre">q(queue).enqueue(...)</span></code>)</p></li>
+</ul>
+</li>
+<li><p><strong>Charge Project (Optional)</strong>
+If the Charge Switch is enabled, the selected container is charged using the <code class="docutils literal notranslate"><span class="pre">create_charge()</span></code> function before pipeline execution.</p></li>
+<li><p><strong>Dataset Creation (Optional)</strong>
+If a <code class="docutils literal notranslate"><span class="pre">dataset_dict</span></code> is provided, the function creates one dataset in B-Fabric for each container ID.
+Each dataset is automatically linked to its corresponding workunit.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="expected-output">
+<h3>Expected Output<a class="headerlink" href="#expected-output" title="Link to this heading">#</a></h3>
+<p>Once the job is completed, users can expect the following:</p>
+<ul class="simple">
+<li><p><strong>Output Directory on Compute Server</strong>:
+A directory structure containing all pipeline outputs, logs, and reports. Named based on timestamp, e.g., <code class="docutils literal notranslate"><span class="pre">/STORAGE/OUTPUT_rnaseq_2025-05-06_10-32-00</span></code></p></li>
+<li><p><strong>Registered B-Fabric Resources</strong>:
+The output directory and key attachments (e.g., MultiQC reports, Qualimap reports, DESeq2 plots) are linked back to the originating dataset entity in B-Fabric.</p></li>
+<li><p><strong>Accessible QC Reports</strong>:
+HTML reports and plots are attached to the dataset for downstream inspection or publication.</p></li>
+<li><p><strong>Workunit Creation</strong>:
+The application logs workunits for job tracking and reproducibility within B-Fabric. This functionality is handled automatically through the <code class="docutils literal notranslate"><span class="pre">bfabric_web_apps</span></code> library configuration.</p></li>
+<li><p><strong>Automatic Charging (if enabled)</strong>:
+If the user activates the Charge Switch, the application automatically charges the appropriate container using the configured service ID before pipeline execution.</p></li>
+<li><p><strong>Integrated Metadata</strong>:
+All generated outputs—datasets, resources, and workunits—are fully connected within B-Fabric, ensuring traceability, reproducibility, and integration across the platform.</p></li>
+</ul>
+<hr class="docutils" />
+<p>By following this structured approach, users can run RNA-seq pipelines reproducibly, monitor job progress, and trace results directly within B-Fabric—all from an interactive and simplified Dash web interface.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-nextflow-nf-core">What is Nextflow &amp; NF-Core?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-seq-use-case">RNA-seq Use Case</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nf-core-rna-seq-pipeline">NF-Core RNA-seq Pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app-structure">App Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-architecture">Server Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-seq-architecture-diagram">RNA-seq Architecture Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-workflow">Step-by-Step Workflow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-output">Expected Output</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+<footer class="bd-footer">
+  <div class="bd-footer__inner bd-page-width" style="padding: 20px 0;"> <!-- Adjust padding to reduce height -->
+  </div>
+</footer>
+
+  </body>
+</html>
